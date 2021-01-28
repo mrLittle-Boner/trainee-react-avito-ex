@@ -1,38 +1,226 @@
-.App {
+header {
   text-align: center;
+  font-size: 35px;
+  font-weight: 500;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  justify-content: center;
+}
+
+section {
+  flex-grow: 1;
+}
+
+main div {
+  display: inline-flex;
+}
+
+img {
+  cursor: pointer;
+}
+
+footer {
+  padding: 12px 0;
+  margin-top: 30px;
+  text-align: center;
+  color: #ccc;
+  border-top: 1px solid #ccc;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.modal__container {
+  margin: 0 100px;
+  width: 100%;
+  background: aliceblue;
+  padding: 30px;
+  max-width: 982px;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  grid-template-rows: 1fr auto;
+  grid-auto-flow: column;
+  -moz-column-gap: 14px;
+       column-gap: 14px;
 }
 
-@keyframes App-logo-spin {
-  from {
+.modal__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.modal__close {
+  position: absolute;
+  background: transparent;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 28px;
+  border: none;
+  cursor: pointer;
+}
+.modal__close:hover {
+  opacity: 1;
+}
+.modal__close:before, .modal__close:after {
+  position: absolute;
+  left: 14px;
+  content: ' ';
+  height: 30px;
+  top: -1px;
+  width: 2px;
+  background-color: rgb(255, 0, 0);
+}
+.modal__close:before {
+  transform: rotate(45deg);
+}
+.modal__close:after {
+  transform: rotate(-45deg);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  row-gap: 20px;
+}
+
+input,.comment__send {
+  padding: 7px 11px 8px;
+  border-radius: 3px;
+}
+
+input {
+  border: 1px solid #ccc;
+}
+
+input:hover,
+input:focus {
+  border-color: #999;
+}
+
+.comments {
+  padding-right: 15px;
+  grid-row: span 2;
+}
+
+.comment__send {
+  border: none;
+  background: #4997D0;
+  color: aliceblue;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .3s ease;
+}
+
+.comment__send:hover {
+  background-color: aliceblue;
+  border-color: #4997D0;
+  color: black;
+}
+
+.comment{
+  margin-bottom: 20px;
+}
+.comment__date {
+  color: #999;
+
+}
+.comment__text {
+  margin-top: 5px;
+}
+
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid rgb(0, 174, 255);
+  border-color: rgb(0, 174, 255) transparent rgb(0, 174, 255) transparent;
+  -webkit-animation: lds-dual-ring 1.2s linear infinite;
+          animation: lds-dual-ring 1.2s linear infinite;
+}
+@-webkit-keyframes lds-dual-ring {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width:768px) {
+  .modal__container {
+    margin: 0 20px;
+  }
+}
+
+@media screen and (max-width:584px) {
+  .modal__container {
+    grid-template-columns: auto;
+    grid-auto-flow: unset;
+  }
+
+  .comments {
+    margin-top: 25px;
+    grid-row: 2;
+  }
+
+  .modal__close {
+    top: 2px; right: 2px;
+  }
+}
+
+@media screen and (max-width:440px) {
+  .modal__container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    grid-template-rows: 1fr 1fr 190px;
+  }
+
+  .modal__content,
+  .comments {
+    padding: 0 22px;
   }
 }
