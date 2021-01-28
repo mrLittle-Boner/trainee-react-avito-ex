@@ -3,6 +3,14 @@
 Here is a little test exercise from [avito](https://github.com/avito-tech/safedeal-frontend-trainee) for trainee developers(react js).
 All code written by me ofcourse.
 
+
+
+**Installation:** <br/>
+
+  1. Clone/download code from repository
+  2. Install dependencies ("npm install")
+  3. Use start script ("npm run satart")
+
 ## About app
 This app getg images from server :
 
